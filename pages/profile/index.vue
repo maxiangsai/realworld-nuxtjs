@@ -18,7 +18,6 @@
         </div>
       </div>
     </div>
-    {{ res }}
     <div class="container">
       <div class="row">
         <div class="col-xs-12 col-md-10 offset-md-1">
@@ -33,7 +32,11 @@
             </ul>
           </div>
 
-          <article-list :articles="articles" />
+          <article-list
+            :articles="articles"
+            :total="articlesCount"
+            @page="onPageChange"
+          />
         </div>
       </div>
     </div>
