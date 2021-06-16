@@ -1,4 +1,4 @@
-name: Nuxt blog
+name: Realworld nuxtjs
 on:
   push:
     tags:
@@ -53,8 +53,8 @@ jobs:
         password: ${{ secrets.PASSWORD }}
         port: ${{ secrets.PORT }}
         script: |
-          cd /root/nuxt-blog
-          wget https://github.com/maxiangsai/nuxt-blog/releases/latest/download/release.tgz -O release.tgz
+          cd /root/realworld-nuxtjs
+          wget https://github.com/maxiangsai/realworld-nuxtjs/releases/latest/download/release.tgz -O release.tgz
           tar zxvf release.tgz
           npm install --production
           pm2 reload pm2.config.json
