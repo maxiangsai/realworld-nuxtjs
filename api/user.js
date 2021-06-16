@@ -27,7 +27,11 @@ export default ($axios) => ({
     return $axios.get(`/profiles/${username}`)
   },
 
-  updateProfile(user) {
+  update(user) {
     return $axios.put('/user', { user })
+  },
+
+  getUserInfo() {
+    return $axios.get('/user')
   },
 })

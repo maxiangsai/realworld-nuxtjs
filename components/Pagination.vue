@@ -6,13 +6,12 @@
       class="page-item"
       :class="{ active: pageNumber === currentPage }"
     >
-      <a
-        href="javascript:;"
+      <nuxt-link
+        :to="{ name: $route.name, query: { page: pageNumber } }"
         class="page-link"
-        @click="() => onPageChange(pageNumber)"
       >
         {{ pageNumber }}
-      </a>
+      </nuxt-link>
     </li>
   </ul>
 </template>
@@ -30,19 +29,13 @@ export default {
     },
     pageSize: {
       type: Number,
-      default: 5,
+      default: 10,
     },
   },
 
   computed: {
     pageCount() {
       return Math.ceil(this.total / this.pageSize)
-    },
-  },
-
-  methods: {
-    onPageChange(page) {
-      this.$emit('page', page)
     },
   },
 }

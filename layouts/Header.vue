@@ -9,14 +9,14 @@
 
         <template v-if="user">
           <li v-if="user" class="nav-item">
-            <a class="nav-link" href="">
+            <nuxt-link class="nav-link" to="/edit-article">
               <i class="ion-compose"></i>&nbsp;New Post
-            </a>
+            </nuxt-link>
           </li>
           <li v-if="user" class="nav-item">
-            <a class="nav-link" href="">
+            <nuxt-link class="nav-link" to="/settings">
               <i class="ion-gear-a"></i>&nbsp;Settings
-            </a>
+            </nuxt-link>
           </li>
           <li class="nav-item">
             <nuxt-link class="nav-link" to="/profile">

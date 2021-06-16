@@ -32,10 +32,10 @@
             </ul>
           </div>
 
-          <article-list
-            :articles="articles"
-            :total="articlesCount"
-            @page="onPageChange"
+          <article-preview
+            v-for="(item, index) in articles"
+            :key="index"
+            :article="item"
           />
         </div>
       </div>
@@ -45,9 +45,9 @@
 
 <script>
 import { mapState } from 'vuex'
-import ArticleList from '@/components/ArticleList'
+import ArticlePreview from '@/components/ArticlePreview'
 export default {
-  components: { ArticleList },
+  components: { ArticlePreview },
   middleware: ['authenticated'],
   async asyncData({ app, store }) {
     const { profile } = await app.$user.getProfile(

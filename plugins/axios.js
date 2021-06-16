@@ -1,5 +1,6 @@
 import createUserApi from '@/api/user'
 import createArticleApi from '@/api/article'
+import createTagApi from '@/api/tag'
 
 export default function ({ $axios, redirect, store }, inject) {
   $axios.setBaseURL('https://conduit.productionready.io/api')
@@ -24,4 +25,5 @@ export default function ({ $axios, redirect, store }, inject) {
 
   inject('user', createUserApi($axios))
   inject('article', createArticleApi($axios))
+  inject('tag', createTagApi($axios))
 }

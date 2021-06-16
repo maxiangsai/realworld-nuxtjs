@@ -39,7 +39,7 @@
             </fieldset>
             <button
               class="btn btn-lg btn-primary pull-xs-right"
-              @click="register"
+              @click.prevent="register"
             >
               注册
             </button>
@@ -64,8 +64,12 @@ export default {
   },
   methods: {
     async register() {
-      const res = await this.$user.register(this.user)
-      console.log(res)
+      try {
+        await this.$user.register(this.user)
+        this.$router.push('/login')
+      } catch (error) {
+        console.error(error.message)
+      }
     },
   },
 }

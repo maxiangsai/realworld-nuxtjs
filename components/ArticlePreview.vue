@@ -4,9 +4,13 @@
       <a href=""><img :src="article.author.image" /></a>
       <div class="info">
         <a href="" class="author">{{ article.author.username }}</a>
-        <span class="date">{{ article.createdAt }}</span>
+        <span class="date">{{ format(article.createdAt) }}</span>
       </div>
-      <button class="btn btn-outline-primary btn-sm pull-xs-right">
+      <button
+        class="btn btn-sm pull-xs-right"
+        :class="[article.favorited ? 'btn-primary' : 'btn-outline-primary']"
+        @click="$emit('favorite', article.favorited)"
+      >
         <i class="ion-heart"></i> {{ article.favoritesCount }}
       </button>
     </div>
@@ -28,11 +32,18 @@
 </template>
 
 <script>
+import dayjs from 'dayjs'
 export default {
   props: {
     article: {
       type: Object,
       required: true,
+    },
+  },
+
+  methods: {
+    format(number) {
+      return dayjs(number).format('YYYY-MM-DD HH:mm:ss')
     },
   },
 }

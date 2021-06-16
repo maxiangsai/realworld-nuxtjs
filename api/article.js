@@ -12,4 +12,28 @@ export default ($axios) => ({
       params,
     })
   },
+
+  create(article) {
+    return $axios.post('/articles', { article })
+  },
+
+  update(slug, article) {
+    return $axios.put(`/articles/${slug}`, { article })
+  },
+
+  delete(slug) {
+    return $axios.delete(`/articles/${slug}`)
+  },
+
+  getDetail(slug) {
+    return $axios.get(`/articles/${slug}`)
+  },
+
+  favorite(slug) {
+    return $axios.post(`/articles/${slug}/favorite`)
+  },
+
+  unFavorite(slug) {
+    return $axios.delete(`/articles/${slug}/favorite`)
+  },
 })
