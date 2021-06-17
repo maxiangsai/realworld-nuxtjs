@@ -1,5 +1,6 @@
 # realworld-nuxtjs
 
+[线上地址](http://47.113.89.113:3000)
 ## Build Setup
 
 ```bash
