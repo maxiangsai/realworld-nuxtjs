@@ -18,7 +18,7 @@ jobs:
       uses: actions/setup-node@master
     - run: yarn
     - run: yarn build
-    - run: tar -zcvf release.tgz .nuxt static nuxt.config.js package.json yarn.lock pm2.config.json
+    - run: tar -zcvf release.tgz .nuxt static nuxt.config.js package.json yarn.lock ecosystem.config.js
 
     # 发布 Release
     - name: Create Release
@@ -57,4 +57,4 @@ jobs:
           wget https://github.com/maxiangsai/realworld-nuxtjs/releases/latest/download/release.tgz -O release.tgz
           tar zxvf release.tgz
           yarn --production
-          pm2 reload pm2.config.json
+          pm2 reload
